@@ -34,14 +34,16 @@ app.get('/students/:student_id', function(req,res){
     let studentId = parseInt(req.params.student_id);
      let student_data = students.find(function(item){
         return item.id === studentId;
-            
-        
-
-    });res.send(student_data); 
+            });
     
-    student_data != studentId;
-   
-    res.send( 'ERROR NO STUDENT ');
+            res.send(student_data);    
+  
+            if(!student_data){
+  
+  console.log("no student")
+
+}
+ 
     
 });
 
@@ -72,6 +74,10 @@ app.delete('/students/:student_id',function(req,res){
 
 });
               
+
+
+
+
 
 
 var server = app.listen(8000,function(){
